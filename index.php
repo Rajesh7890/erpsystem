@@ -1,11 +1,11 @@
 <?php include "includes/header.php";
 ?>
-<?php 
-if($_SESSION['role'] !== 'student') {
-    header("Location: Admin/index.php");
+<?php
+if ($_SESSION['role'] !== 'student') {
+  header("Location: Admin/index.php");
 }
-if(!isset($_SESSION['username'])){
-    header("Location: login.php");
+if (!isset($_SESSION['username'])) {
+  header("Location: login.php");
 }
 include "includes/db.php";
 ?>
@@ -15,8 +15,8 @@ include "includes/db.php";
     <li class="active"><a href="index.php"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
     <li class="submenu"> <a href="#"><i class="icon icon-copy"></i> <span>Exams</span></a>
       <ul>
-          <li><a href="internal.php"><i class="icon icon-file"></i> <span>Internal Exam</span></a></li>
-          <li><a href="semester.php"><em class="icon icon-file"></em> <span>Semester Exam</span></a></li>
+        <li><a href="internal.php"><i class="icon icon-file"></i> <span>Internal Exam</span></a></li>
+        <li><a href="semester.php"><em class="icon icon-file"></em> <span>Semester Exam</span></a></li>
       </ul>
     </li>
     <li><a href="library.php"><i class="icon icon-book"></i> <span>Library</span></a> </li>
@@ -26,8 +26,8 @@ include "includes/db.php";
     <li><a href="Elearning/pages/site/index.html" target="_blank"><i class="icon icon-copy"></i> <span>Lectures Note</span></a></li>
     <li class="submenu"> <a href="#"><i class="icon icon-picture"></i> <span>Gallery</span></a>
       <ul>
-          <li><a href="cultural.php"><i class="icon icon-camera-retro"></i> <span>Culture Event</span></a></li>
-          <li><a href="techfest.php"><i class="icon icon-film"></i> <span>Techfest</span></a></li>
+        <li><a href="cultural.php"><i class="icon icon-camera-retro"></i> <span>Culture Event</span></a></li>
+        <li><a href="techfest.php"><i class="icon icon-film"></i> <span>Techfest</span></a></li>
       </ul>
     </li>
     <li><a href="transport.php"><i class="icon icon-truck"></i> <span>Transport</span></a></li>
@@ -39,13 +39,13 @@ include "includes/db.php";
 
 <!--main-container-part-->
 <div id="content">
-<!--breadcrumbs-->
+  <!--breadcrumbs-->
   <div id="content-header">
     <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
   </div>
-<!--End-breadcrumbs-->
-    <div class="quick-actions_homepage" style="margin-left:60px;">
-       
+  <!--End-breadcrumbs-->
+  <div class="quick-actions_homepage" style="margin-left:60px;">
+
     <ul class="quick-actions">
       <li class="bg_lb"> <a href="#"> <i class="icon-dashboard"></i> My Dashboard </a> </li>
       <li class="bg_lg"> <a href="internal.php"> <i class="icon-file"></i> Exams</a> </li>
@@ -60,56 +60,56 @@ include "includes/db.php";
       <li class="bg_lg"> <a href="discipline.php"> <i class="icon-bullhorn"></i> Discipline</a> </li>
       <li class="bg_lb"> <a href="feedback.php"> <i class="icon-comment"></i> Feedback</a> </li>
     </ul>
-            
+
   </div>
 
-<!--All The content Goes Here-->
-<div class="container-fluid">
-	<div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span6">
-        <div class="widget-box">
-          <div class="widget-title bg_ly" data-toggle="collapse" href="#collapseG2"><span class="icon"><i class="icon-chevron-down"></i></span>
-            <h5>Latest Notices</h5>
-          </div>
-          <div class="widget-content nopadding collapse in" id="collapseG2">
-            <ul class="recent-posts">
-                <?php 
+  <!--All The content Goes Here-->
+  <div class="container-fluid">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span6">
+          <div class="widget-box">
+            <div class="widget-title bg_ly" data-toggle="collapse" href="#collapseG2"><span class="icon"><i class="icon-chevron-down"></i></span>
+              <h5>Latest Notices</h5>
+            </div>
+            <div class="widget-content nopadding collapse in" id="collapseG2">
+              <ul class="recent-posts">
+                <?php
                 $query = "SELECT * FROM notices ORDER BY id DESC";
-                $execute_query = mysqli_query($connection,$query);
-                
-                if(!$execute_query) {
-                    die("QUERY FAILED".mysqli_error($connection));
+                $execute_query = mysqli_query($connection, $query);
+
+                if (!$execute_query) {
+                  die("QUERY FAILED" . mysqli_error($connection));
                 }
                 $count = 1;
-                
-                while($row = mysqli_fetch_array($execute_query)) {
-                    echo '<li>
+
+                while ($row = mysqli_fetch_array($execute_query)) {
+                  echo '<li>
                 <div class="user-thumb"> <img width="40" height="40" alt="User" src="img/demo/av1.jpg"> </div>
-                <div class="article-post"> <span class="user-info"> By: '.$row['post_by'].' / Date: '.$row['date'].' </span>
-                  <p><a href="#">'.$row['message'].'</a> </p>
+                <div class="article-post"> <span class="user-info"> By: ' . $row['post_by'] . ' / Date: ' . $row['date'] . ' </span>
+                  <p><a href="#">' . $row['message'] . '</a> </p>
                 </div>
               </li>';
-                    $count++;
-                    if($count>4) {
-                        break;
-                    }
+                  $count++;
+                  if ($count > 4) {
+                    break;
+                  }
                 }
-                
-                ?>
-              
-              <li>
-                <a href="notice.php"><button class="btn btn-warning btn-mini" >View All</button></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-<!--Modal Start-->
 
-<!--Modal End-->
-       
-      </div>
-      <!--<div class="span6">
+                ?>
+
+                <li>
+                  <a href="notice.php"><button class="btn btn-warning btn-mini">View All</button></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!--Modal Start-->
+
+          <!--Modal End-->
+
+        </div>
+        <!--<div class="span6">
         
         <div class="widget-box">
           <div class="widget-title bg_lo"  data-toggle="collapse" href="#collapseG3" > <span class="icon"> <i class="icon-chevron-down"></i> </span>
@@ -127,17 +127,17 @@ include "includes/db.php";
           </div>
         </div>
       </div>-->
+      </div>
+      <hr>
     </div>
-    <hr>
   </div>
-</div>
-<!--End Of Container Fluid-->
+  <!--End Of Container Fluid-->
 </div>
 
 <!--end-main-container-part-->
 
 <!--Footer-part-->
 
-<?php include "includes/footer.php";?>
+<?php include "includes/footer.php"; ?>
 
 <!--end-Footer-part-->
