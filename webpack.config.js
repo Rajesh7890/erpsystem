@@ -5,6 +5,7 @@ module.exports = {
   entry: {
     erp: './src/index.jsx',
     quick_action_items: './src/partials/quick_action_items.jsx',
+    erp_css: './css/erp.scss',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -23,8 +24,15 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
+        ],
       },
     ],
   },

@@ -44,23 +44,7 @@ include "includes/db.php";
     <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
   </div>
   <!--End-breadcrumbs-->
-  <div class="quick-actions_homepage" style="margin-left:60px;">
-
-    <ul class="quick-actions">
-      <li class="bg_lb"> <a href="#"> <i class="icon-dashboard"></i> My Dashboard </a> </li>
-      <li class="bg_lg"> <a href="internal.php"> <i class="icon-file"></i> Exams</a> </li>
-      <li class="bg_ly"> <a href="library.php"> <i class=" icon-book"></i> Library </a> </li>
-      <li class="bg_ls"> <a href="attendance.php"> <i class="icon-signal"></i> Attendance </a> </li>
-      <li class="bg_lo"> <a href="timetable.php"> <i class="icon-table"></i> Timetable</a> </li>
-      <li class="bg_lv"> <a href="calender.php"> <i class="icon-table"></i> Calender</a> </li>
-      <li class="bg_lv"> <a href="lecture.php"> <i class="icon-copy"></i> Lecture Notes</a> </li>
-      <li class="bg_lo"> <a href="cultural.php"> <i class="icon-camera-retro"></i> Cultural Events</a> </li>
-      <li class="bg_ls"> <a href="techfest.php"> <i class="icon-film"></i> Techfest</a> </li>
-      <li class="bg_ly"> <a href="transport.php"> <i class="icon-truck"></i> Transport</a> </li>
-      <li class="bg_lg"> <a href="discipline.php"> <i class="icon-bullhorn"></i> Discipline</a> </li>
-      <li class="bg_lb"> <a href="feedback.php"> <i class="icon-comment"></i> Feedback</a> </li>
-    </ul>
-
+  <div id="quick-actions-homepage" class="quick-actions_homepage">
   </div>
 
   <!--All The content Goes Here-->
@@ -137,6 +121,7 @@ include "includes/db.php";
 <!--end-main-container-part-->
 
 <!--Footer-part-->
+<script src="../dist/quick_action_items.js"></script>
 
 <?php include "includes/footer.php"; ?>
 

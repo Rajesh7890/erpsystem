@@ -1,7 +1,15 @@
+/* partials/quick_action_items.jsx - Quick action items component. */
+
+/*
+modification history
+--------------------
+01a,2-sep21,rks  created.
+*/
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import '../../css/quick_action_items.css';
+import '../../css/erp.scss';
 
 const QUICK_ACTION_ITEMS = [
   {
