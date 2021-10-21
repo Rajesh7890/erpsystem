@@ -1,4 +1,4 @@
-<?php include "../includes/header.php";
+<?php include "../../includes/header.php";
 if(!isset($_SESSION['username'])) {
   header("Location: ../login.php");
 }
@@ -47,7 +47,7 @@ if($_SESSION['role'] !== 'teacher'){
           <div class="widget-content">
             <div class="todo">
                 <ul>
-                <?php include "../includes/db.php";
+                <?php include "../../includes/db.php";
                 $query = "SELECT * FROM notices ORDER BY id DESC";
                 $execute_query = mysqli_query($connection,$query);
                 
@@ -91,6 +91,6 @@ if($_SESSION['role'] !== 'teacher'){
 
 <!--Footer-part-->
 
-<?php include "../includes/footer.php";?>
+<?php include "../../includes/footer.php";?>
 
 <!--end-Footer-part-->

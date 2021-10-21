@@ -1,13 +1,13 @@
-<?php include "includes/header.php";
+<?php include "../includes/header.php";
 ?>
 <?php
 if ($_SESSION['role'] !== 'student') {
-  header("Location: Admin/index.php");
+  header("Location: admin/index.php");
 }
 if (!isset($_SESSION['username'])) {
   header("Location: login.php");
 }
-include "includes/db.php";
+include "../includes/db.php";
 ?>
 <!--sidebar-menu-->
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
@@ -112,6 +112,6 @@ include "includes/db.php";
 
 <!--Footer-part-->
 
-<?php include "includes/footer.php"; ?>
+<?php include "../includes/footer.php"; ?>
 
 <!--end-Footer-part-->

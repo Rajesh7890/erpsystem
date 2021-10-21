@@ -1,4 +1,4 @@
-<?php include "../includes/header.php";
+<?php include "../../includes/header.php";
 if(!isset($_SESSION['username'])) {
   header("Location: ../login.php");
 }
@@ -11,8 +11,8 @@ if($_SESSION['role'] !== 'teacher'){
 <div id="sidebar"><a href="index.php" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul>
     <li><a href="index.php"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
-    <li><a href="internal.php"><i class="icon icon-file"></i> <span>Internal Exam</span></a></li>
-    <li class="active"><a href="attendance.php"><i class="icon icon-signal"></i> <span>Attendance</span></a> </li>
+    <li class="active"><a href="internal.php"><i class="icon icon-file"></i> <span>Internal Exam</span></a></li>
+    <li><a href="attendance.php"><i class="icon icon-signal"></i> <span>Attendance</span></a> </li>
     <li><a href="timetable.php"><i class="icon icon-table"></i> <span>Timetable</span></a></li>
     <li><a href="notice.php"><i class="icon icon-comments"></i> <span>Notice</span></a></li>
   </ul>
@@ -35,10 +35,11 @@ if($_SESSION['role'] !== 'teacher'){
             <table class="table table-bordered table-striped">
               <thead>
                   <tr>
-                <?php include "../includes/db.php";
+                <?php include "../../includes/db.php";
                       $regd_no = $_GET['regd'];
                   $sem = $_GET['sem'];
-                  $query1 = "SELECT * FROM subjects WHERE sem = '{$sem}'";
+                  $internal = $_GET['internal'];
+                  $query1 = "SELECT * FROM subjects WHERE sem = '{$sem}' AND branch = '{$_SESSION['branch']}'";
                   $execute_query1 = mysqli_query($connection,$query1);
                   
                   if(!$execute_query1) {
@@ -57,7 +58,7 @@ if($_SESSION['role'] !== 'teacher'){
                       echo "</tr></thead>";
                   ?>
                       <tbody><?php
-                  $query = "SELECT * FROM attendance WHERE regd_no = '{$regd_no}' AND sem = '{$sem}'";
+                  $query = "SELECT * FROM exams WHERE regd_no = '{$regd_no}' AND sem = '{$sem}' AND internal = '{$internal}' AND branch='{$_SESSION['branch']}'";
                   $execute_query = mysqli_query($connection,$query);
                   
                   if(!$execute_query) {
@@ -65,20 +66,31 @@ if($_SESSION['role'] !== 'teacher'){
                   }
                   
                   while($row = mysqli_fetch_array($execute_query)) {
-                      echo '<form action="includes/attendance.php?regd_no='.$row['regd_no'].'&sem='.$sem.'" method="post">';
+                      echo '<form action="includes/internal.php?regd_no='.$row['regd_no'].'&sem='.$sem.'&internal='.$internal.'" method="post">';
                       echo "<tr class='odd gradeX'>
                       <td>".$row['regd_no']."</td>
-                          <td><input class='span2' min='0' type='number' name='sub1' value='".$row['sub1']."'></input></td>
-                          <td><input class='span2' min='0' type='number' name='sub2' value='".$row['sub2']."'></input></td>
-                          <td><input class='span2' min='0' type='number' name='sub3' value='".$row['sub3']."'></input></td>
-                          <td><input class='span2' min='0' type='number' name='sub4' value='".$row['sub4']."'></input></td>
-                          <td><input class='span2' min='0' type='number' name='sub5' value='".$row['sub5']."'></input></td>
-                          <td><input class='span2' min='0' type='number' name='lab1' value='".$row['lab1']."'></input></td>
+                          <td><input class='span2' min='0' max='30' type='number' id='number' name='sub1' value='".$row['sub1']."'></input></td>
+                          <td><input class='span2' min='0' max='30' type='number' id='number' name='sub2' value='".$row['sub2']."'></input></td>
+                          <td><input class='span2' min='0' max='30' type='number' id='number' name='sub3' value='".$row['sub3']."'></input></td>
+                          <td><input class='span2' min='0' max='30' type='number' id='number' name='sub4' value='".$row['sub4']."'></input></td>
+                          <td><input class='span2' min='0' max='30' type='number' id='number' name='sub5' value='".$row['sub5']."'></input></td>
+                          <td><input class='span2' min='0' max='30' type='number' id='number' name='lab1' value='".$row['lab1']."'></input></td>
                         <td><button type='submit' name='save' class='btn btn-info btn-mini'>Save</button></td></tr></form>";
                   }
                   
                   ?>
-
+<!--    Demo table Start
+                <tr class="odd gradeX">
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 4.0</td>
+                  <td>Win 95+</td>
+                  <td class="center"> 4</td>
+                  <td class="center">X</td>
+                </tr>
+                
+                
+        Demo table end -->
               </tbody>
             </table>
           </div>
@@ -90,6 +102,11 @@ if($_SESSION['role'] !== 'teacher'){
 
 <!--Footer-part-->
 
-<?php include "../includes/footer.php";?>
+<div class="row-fluid">
+  <div id="footer" class="span12"> 2018 &copy; Academia Developed by Rc and Rj Mob:8117057035,7008180418</div>
+</div>
 
 <!--end-Footer-part-->
+
+<?php include "../../includes/footer.php";
+?>

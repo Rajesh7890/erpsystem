@@ -2,7 +2,7 @@
 if (isset($_SESSION['username']) && $_SESSION['role'] == 'student') {
 	header("Location: index.php");
 } else if (isset($_SESSION['username']) && $_SESSION['role'] == 'teacher') {
-	header("Location: Admin/index.php");
+	header("Location: admin/index.php");
 }
 ?>
 <!DOCTYPE html>

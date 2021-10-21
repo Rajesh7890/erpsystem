@@ -15,3 +15,8 @@ In order view the code base properly we recommend using [VSCode](https://code.vi
 - Browse for the file and click on the go button at the end of the page
 - All done!!
 - Now just visit [erpsystem](http://localhost/erpsystem/) to see the app in action
+
+## Developers
+- If you are a developer please install node, yarn (optional: You can use default npm)
+- Just type the command `yarn` or `npm install` to install packages
+- Then type command `yarn wp` or `webpack` to build the packages

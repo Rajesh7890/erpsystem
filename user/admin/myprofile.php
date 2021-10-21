@@ -1,4 +1,4 @@
-<?php include "../includes/header.php";
+<?php include "../../includes/header.php";
 if(!isset($_SESSION['username'])) {
   header("Location: ../login.php");
 }
@@ -23,11 +23,15 @@ if($_SESSION['role'] !== 'teacher'){
 <div id="content">
 <!--breadcrumbs-->
   <div id="content-header">
-      <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
-    <a href="#" class="current">Update Profile</a></div>
+    <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
+    <a href="#" class="current">My Profile</a></div>
   </div>
 <!--End-breadcrumbs-->
 <!--All The content Goes Here-->
+     <?php if(@$_GET['id']=='12325994184dsde485621348796314879631sdedf8cdegrhtehth5t484152478563214875632') {
+    echo "<center><strong><font color='green'>Profile update is successfull</font></strong></center>";
+}
+    ?>
 <div class="container-fluid"><hr>
     
     <div class="row-fluid" style="margin-left: 300px;">
@@ -36,14 +40,14 @@ if($_SESSION['role'] !== 'teacher'){
         
         <div class="widget-box">
         <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-          <h5>Profile Update &#187;</h5>
+          <h5>My Profile  &#187;</h5>
         </div>
         <div class="widget-content nopadding">
-          <form action="includes/update_profile.php" method="post" class="form-horizontal">
+          <form action="updateprofile.php" method="post" class="form-horizontal">
             <div class="control-group">
               <label class="control-label">User Name :</label>
               <div class="controls">
-                <input type="text" class="span11" name="username" pattern="[A-Za-z0-9].{5,10}" value="<?php echo $_SESSION['username'];?>" required title="Username must be 6 to 10 characters and not support any special characters"/>
+                <input type="text" class="span11" value="<?php echo $_SESSION['username'];?>" readonly/>
               </div>
             </div><div class="control-group">
               <label class="control-label">First Name :</label>
@@ -61,7 +65,7 @@ if($_SESSION['role'] !== 'teacher'){
              <div class="control-group">
               <label class="control-label" for="normal">DOB :</label>
               <div class="controls">
-                <input type="date" id="mask-date" class="span11 mask text" name="dob" value="<?php echo $_SESSION['dob'];?>" required/><span class="help-block blue span8">MM/DD/YYYY</span>
+                <input type="date" id="mask-date" class="span11 mask text"  value="<?php echo $_SESSION['dob'];?>" readonly/><span class="">MM/DD/YYYY</span>
               </div>
             </div>
             
@@ -85,26 +89,26 @@ if($_SESSION['role'] !== 'teacher'){
               <div class="control-group">
               <label class="control-label">Email Id :</label>
               <div class="controls">
-                <input type="email"  class="span11" name="email" value="<?php echo $_SESSION['email'];?>" required/>
+                <input type="text"  class="span11" value="<?php echo $_SESSION['email'];?>" readonly/>
               </div>
             </div>
             <div class="control-group">
               <label for="normal" class="control-label">Mob number :</label>
               <div class="controls">
-                <input type="text" id="" class="span8 mask text" name="phone" pattern=".{10}" value="<?php echo $_SESSION['phone'];?>" required title="Please enter a valid phone number">
+                <input type="text" id="" class="span8 mask text" value="<?php echo $_SESSION['phone'];?>" readonly>
                  </div>
             </div>
               <div class="control-group">
               <label for="normal" class="control-label">Address :</label>
               <div class="controls">
 <!--                <input type="text" id="" class="span8 mask text">-->
-                  <textarea id="address" name="address" required><?php echo $_SESSION['address'];?></textarea>
+                  <textarea id="address" name="address" readonly><?php echo $_SESSION['address'];?></textarea>
                  </div>
             </div>
               
             
             <div class="form-actions">
-              <button type="submit" name="update" class="btn btn-warning" style="margin-left: 180px;">Update</button>
+              <button type="submit" name="submit" class="btn btn-info" style="margin-left: 200px;">Edit Profile</button>
             </div>
           </form>
         </div>
@@ -125,6 +129,6 @@ if($_SESSION['role'] !== 'teacher'){
 
 <!--Footer-part-->
 
-<?php include "../includes/footer.php";?>
+<?php include "../../includes/footer.php";?>
 
 <!--end-Footer-part-->

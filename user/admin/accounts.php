@@ -1,4 +1,4 @@
-<?php include "../includes/header.php";
+<?php include "../../includes/header.php";
 if(!isset($_SESSION['username'])) {
   header("Location: ../login.php");
 }
@@ -12,11 +12,10 @@ if($_SESSION['role'] !== 'teacher'){
   <ul>
     <li><a href="index.php"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
     <li><a href="internal.php"><i class="icon icon-file"></i> <span>Internal Exam</span></a></li>
-    <li><a href="library.php"><i class="icon icon-book"></i> <span>Library</span></a></li>
     <li><a href="attendance.php"><i class="icon icon-signal"></i> <span>Attendance</span></a> </li>
     <li><a href="timetable.php"><i class="icon icon-table"></i> <span>Timetable</span></a></li>
-    <li><a href="accounts.php"><i class="icon icon-money"></i> <span>Accounts</span></a></li>
-    <li class="active"><a href="events.php"><i class="icon icon-picture"></i> <span>Events and Activities</span></a></li>
+    <li class="active"><a href="accounts.php"><i class="icon icon-money"></i> <span>Accounts</span></a></li>
+    <li><a href="events.php"><i class="icon icon-picture"></i> <span>Events and Activities</span></a></li>
     <li><a href="notice.php"><i class="icon icon-comments"></i> <span>Notice</span></a></li>
   </ul>
 </div>
@@ -26,7 +25,7 @@ if($_SESSION['role'] !== 'teacher'){
 <div id="content">
 <!--breadcrumbs-->
   <div id="content-header">
-    <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a><a href="#" class="current">Events</a></div>
+    <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a><a href="#" class="current">Accounts</a></div>
   </div>
 <!--End-breadcrumbs-->
 
@@ -61,6 +60,6 @@ if($_SESSION['role'] !== 'teacher'){
 
 <!--Footer-part-->
 
-<?php include "../includes/footer.php";?>
+<?php include "../../includes/footer.php";?>
 
 <!--end-Footer-part-->

@@ -1,9 +1,9 @@
-<?php include "includes/header.php";
-include "includes/db.php";
+<?php include "../includes/header.php";
+include "../includes/db.php";
 ?>
 <?php
 if ($_SESSION['role'] !== 'student') {
-  header("Location: Admin/index.php");
+  header("Location: admin/index.php");
 }
 if (!isset($_SESSION['username'])) {
   header("Location: login.php");
@@ -182,4 +182,4 @@ if (!isset($_SESSION['username'])) {
 
 <!--end-Footer-part-->
 
-<?php include "includes/footer.php"; ?>
+<?php include "../includes/footer.php"; ?>

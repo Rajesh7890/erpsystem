@@ -1,6 +1,6 @@
 <?php session_start();
 if ($_SESSION['role'] !== 'student') {
-  header("Location: Admin/index.php");
+  header("Location: admin/index.php");
 }
 if (!isset($_SESSION['username'])) {
   header("Location: login.php");
@@ -104,13 +104,6 @@ if (!isset($_SESSION['username'])) {
 
     /* Import Roboto font */
     @import url(https://fonts.googleapis.com/css?family=Roboto:300);
-
-    html,
-    body {
-      font-family: 'Roboto', sans-serif;
-      font-size: 16px;
-      line-height: 24px;
-    }
 
     .pagination-container {
       margin-top: 1em;
@@ -233,30 +226,7 @@ if (!isset($_SESSION['username'])) {
   <!--start-top-serch-->
   <!--close-top-serch-->
   <!--sidebar-menu-->
-  <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
-    <ul>
-      <li class=""><a href="index.php"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
-      <li class="submenu"> <a href="#"><i class="icon icon-copy"></i> <span>Exams</span></a>
-        <ul>
-          <li><a href="internal.php"><i class="icon icon-file"></i> <span>Internal Exam</span></a></li>
-          <li><a href="semester.php"><i class="icon icon-file"></i> <span>Semester Exam</span></a></li>
-        </ul>
-      </li>
-      <li><a href="library.php"><i class="icon icon-book"></i> <span>Library</span></a> </li>
-      <li><a href="attendance.php"><i class="icon icon-signal"></i> <span>Attendance</span></a> </li>
-      <li><a href="timetable.php"><i class="icon icon-table"></i> <span>Timetable</span></a></li>
-      <li><a href="calender.php"><i class="icon icon-calendar"></i> <span>Calender</span></a></li>
-      <li><a href="Elearning/pages/site/index.html" target="_blank"><i class="icon icon-copy"></i> <span>Lectures Note</span></a></li>
-      <li class="active submenu open"> <a href="#"><i class="icon icon-picture"></i> <span>Gallery</span></a>
-        <ul>
-          <li><a href="cultural.php"><i class="icon icon-camera-retro"></i> <span>Culture Event</span></a></li>
-          <li class="active"><a href="techfest.html"><i class="icon icon-film"></i> <span>Techfest</span></a></li>
-        </ul>
-      </li>
-      <li><a href="transport.php"><i class="icon icon-truck"></i> <span>Transport</span></a></li>
-      <li><a href="discipline.php"><i class="icon icon-bullhorn"></i> <span>Discipline</span></a></li>
-      <li><a href="feedback.php"><i class="icon icon-comments"></i> <span>Feedback</span></a></li>
-    </ul>
+  <div id="sidebar">
   </div>
   <!--sidebar-menu-->
 
@@ -336,6 +306,8 @@ if (!isset($_SESSION['username'])) {
   </div>
 
   <!--end-main-container-part-->
+
+  <script src="../dist/js/sidebar.js"></script>
 
   <!--Footer-part-->
 

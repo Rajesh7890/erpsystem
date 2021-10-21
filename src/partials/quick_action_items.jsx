@@ -3,13 +3,13 @@
 /*
 modification history
 --------------------
-01a,2-sep21,rks  created.
+01a,20sep21,rks  created.
 */
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import '../../css/erp.scss';
+import '../../dist/css/erp.css';
 
 const QUICK_ACTION_ITEMS = [
   {

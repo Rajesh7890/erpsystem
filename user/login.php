@@ -1,12 +1,12 @@
 <?php session_start();
-include "includes/db.php";
+include "../includes/db.php";
 if (isset($_SESSION['username']) && $_SESSION['role'] == 'student') {
 	header("Location: index.php");
 } else if (isset($_SESSION['username']) && $_SESSION['role'] == 'teacher') {
-	header("Location: Admin/index.php");
+	header("Location: admin/index.php");
 }
 if (isset($_SESSION['login_id'])) {
-	header("Location: SuperAdmin/login.php");
+	header("Location: ../superadmin/login.php");
 }
 ?>
 <!DOCTYPE html>
